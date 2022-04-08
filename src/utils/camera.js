@@ -8,6 +8,6 @@ const camera = new PerspectiveCamera(
   1000
 )
 
-camera.position.z = 1
+camera.position.z = 2
 
 export default camera

@@ -1,6 +1,6 @@
 import { DirectionalLight } from 'three'
 
-const light = new DirectionalLight('hsl(0, 100%, 100%)')
-light.position.set(-5, -10, 10)
 
+var light = new DirectionalLight(0xffffff, 1)
+light.position.set(20,3,5)
 export default light

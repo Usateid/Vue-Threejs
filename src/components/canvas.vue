@@ -8,7 +8,7 @@ import controls from '../utils/controls.js'
 import renderer from '../utils/renderer.js'
 import light from '../utils/light.js'
 import { sphere } from '../utils/mesh.js'
-import { Scene, AxesHelper, Color } from 'three'
+import { Scene, AxesHelper, Color, AmbientLight } from 'three'
 export default {
   name: 'the-canvas',
   data: function() {
@@ -20,10 +20,11 @@ export default {
       light,
       sphere,
       axes: new AxesHelper(2),
-      speed: 0.001
+      speed: 0.0001
     }
   },
   created: function() {
+    this.scene.add(new AmbientLight(0x333333))
     this.scene.add(this.camera)
     this.scene.add(this.light)
     this.scene.add(this.sphere)
