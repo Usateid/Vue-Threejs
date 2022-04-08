@@ -8,8 +8,8 @@ const getControls = () => {
   controls.panSpeed = 0.8
   controls.noZoom = false
   controls.noPan = false
-  controls.minDistance = .6
-  controls.maxDistance = 1
+  controls.minDistance = 1.4
+  controls.maxDistance = 2
   controls.staticMoving = true
   controls.dynamicDampingFactor = 0.3
   return controls

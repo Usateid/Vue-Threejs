@@ -11,9 +11,10 @@ import mapImage from '../assets/8k_not_normal.jpg'
 const createSphere = () => {
   const textureLoader = new TextureLoader()
   const normalTexture = textureLoader.load(mapImage)
-  const geometry = new SphereBufferGeometry(.5, 64, 64)
+  const geometry = new SphereBufferGeometry(1, 64, 64)
   const material = new MeshStandardMaterial({
     transparent: true,
+    wireframe: false,
     map: normalTexture
   })
   
