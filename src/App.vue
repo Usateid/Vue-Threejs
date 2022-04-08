@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-   <canvas-component />
+    <canvas-component />
   </div>
 </template>
 
 <script>
 import canvasComponent from './components/canvas.vue'
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     canvasComponent
   }

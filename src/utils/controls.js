@@ -3,7 +3,7 @@ import camera from './camera.js'
 let controls= []
 
 controls = new TrackballControls(camera)
-controls.rotateSpeed = 1.0
+controls.rotateSpeed = 1
 controls.zoomSpeed = 5
 controls.panSpeed = 0.8
 controls.noZoom = false

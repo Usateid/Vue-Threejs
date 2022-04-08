@@ -1,59 +1,48 @@
 <template>
-  <div id="canvas-rendering" ref="canvas" />
+  <div ref="canvas" />
 </template>
 
 <script>
-import * as THREE from 'three'
-import camera from './camera.js'
-import controls from './controls.js'
-import renderer from './renderer.js'
-import light from './light.js'
-import { cube } from './mesh.js'
+import camera from '../utils/camera.js'
+import controls from '../utils/controls.js'
+import renderer from '../utils/renderer.js'
+import light from '../utils/light.js'
+import { sphere } from '../utils/mesh.js'
+import { Scene, AxesHelper, Color } from 'three'
 export default {
-    name: 'TheCanvas',
-    data: function() {
-        const scene = new THREE.Scene()
-
-        return {
-            scene: scene,
-            camera,
-            controls,
-            renderer,
-            light,
-            cube,
-            axes: new THREE.AxesHelper(5),
-            speed: 0.02
-        }
-    },
-    created: function() {
-        this.scene.add(this.camera)
-        this.scene.add(this.light)
-        this.scene.add(this.cube)
-        this.scene.add(this.axes)
-        this.scene.background = new THREE.Color('tomato')
-    },
-    mounted: function() {
-        this.$refs.canvas.appendChild(this.renderer.domElement)
-        this.animate()
-    },
-    methods: {
-        animate: function() {
-            requestAnimationFrame(this.animate)
-            this.renderer.render(this.scene, this.camera)
-            this.cube.rotation.y += this.speed
-            controls.update()
-        }
-    },
-    computed: {
-      rotate() {
-        return this.speed === '' ? 0 : this.speed
-      }
+  name: 'the-canvas',
+  data: function() {
+    return {
+      scene: new Scene(),
+      camera,
+      controls,
+      renderer,
+      light,
+      sphere,
+      axes: new AxesHelper(2),
+      speed: 0.001
     }
+  },
+  created: function() {
+    this.scene.add(this.camera)
+    this.scene.add(this.light)
+    this.scene.add(this.sphere)
+    this.scene.add(this.axes)
+    this.scene.background = new Color('#000000')
+  },
+  mounted () {
+    if(this.$refs.canvas) {
+      this.$refs.canvas.appendChild(this.renderer.domElement)
+      this.animate()
+    }
+  },
+  methods: {
+    animate() {
+      requestAnimationFrame(this.animate)
+      this.renderer.render(this.scene, this.camera)
+      this.sphere.rotation.y += this.speed
+      controls.update()
+    }
+  }
 }
 </script>
-<style scoped>
-#canvas-rendering {
-    width: 100vw;
-    height: 100vh;
-}
-</style>
