@@ -13,7 +13,7 @@ import { Scene, AxesHelper, Color, AmbientLight } from 'three'
 import { GUI } from 'dat.gui'
 export default {
   name: 'the-canvas',
-  data: function() {
+  data() {
     return {
       scene: new Scene(),
       camera,
@@ -27,7 +27,7 @@ export default {
       gui: new GUI()
     }
   },
-  created: function() {
+  created() {
     this.scene.add(new AmbientLight(0x333333))
     this.scene.add(this.camera)
     this.scene.add(this.light)
